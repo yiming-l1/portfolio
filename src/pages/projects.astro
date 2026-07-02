@@ -4,16 +4,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout title="Works | Yiming Li">
 
-  <div style="margin-bottom: 40px;">
+  <div style="display: flex; justify-content: flex-end; margin-bottom: 40px;">
     <!-- Top-right tree/cat line art placeholder -->
-    <div class="placeholder-art" style="float: right; width: 200px; height: 200px; border-radius: 50%; margin-left: 20px;">
+    <div class="placeholder-art" style="width: 200px; height: 200px; border-radius: 50%;">
       <p>Tree & Cat<br/>Line Art</p>
     </div>
-    
-    <h1>works</h1>
   </div>
 
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; clear: both;">
+  <div style="margin-left: 20px;">
+    <h1 style="margin-bottom: 40px;">works</h1>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
     
     <!-- The Unicorn App -->
     <div class="project-card">
@@ -67,6 +68,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </p>
     </div>
 
+    </div>
   </div>
 
 </BaseLayout>

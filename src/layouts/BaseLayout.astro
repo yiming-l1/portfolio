@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 const { title } = Astro.props;
 const currentPath = Astro.url.pathname;
 ---
@@ -14,26 +14,29 @@ const currentPath = Astro.url.pathname;
   <body>
     <div class="layout-container">
       <aside class="sidebar">
-        <a href="/" class="logo-link">Yiming Li.</a>
-        
+        <a href="/" class="logo-link">Yiming Li</a>
+
         <nav class="nav-links">
-          <a href="/about" class={currentPath === '/about' ? 'active' : ''}>about</a>
-          <a href="/projects" class={currentPath === '/projects' ? 'active' : ''}>works</a>
-          <a href="/blog" class={currentPath === '/blog' ? 'active' : ''}>blog</a>
-          <a href="/contact" class={currentPath === '/contact' ? 'active' : ''}>contact</a>
+          <a href="/about" class={currentPath === "/about" ? "active" : ""}
+            >about</a
+          >
+          <a
+            href="/projects"
+            class={currentPath === "/projects" ? "active" : ""}>works</a
+          >
+          <a href="/blog" class={currentPath === "/blog" ? "active" : ""}
+            >blog</a
+          >
+          <a href="/contact" class={currentPath === "/contact" ? "active" : ""}
+            >contact</a
+          >
         </nav>
-        
-        <div style="margin-top: 40px; font-family: var(--secondary-font); font-size: 14px;">
-          中 / En
-        </div>
       </aside>
 
       <main class="main-content">
         <slot />
-        
-        <footer>
-          Copyright &copy; 2026 Yiming Li. All Rights Reserved.
-        </footer>
+
+        <footer>Copyright &copy; 2026 Yiming Li. All Rights Reserved.</footer>
       </main>
     </div>
   </body>
