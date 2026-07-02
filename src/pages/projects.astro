@@ -2,16 +2,71 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Projects | Yiming Li">
+<BaseLayout title="Works | Yiming Li">
 
-  <h1>Projects</h1>
+  <div style="margin-bottom: 40px;">
+    <!-- Top-right tree/cat line art placeholder -->
+    <div class="placeholder-art" style="float: right; width: 200px; height: 200px; border-radius: 50%; margin-left: 20px;">
+      <p>Tree & Cat<br/>Line Art</p>
+    </div>
+    
+    <h1>works</h1>
+  </div>
 
-  <p>Here are some things I've built.</p>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; clear: both;">
+    
+    <!-- The Unicorn App -->
+    <div class="project-card">
+      <h2 style="margin-bottom: 10px;">
+        <a href="#" style="text-decoration: underline; text-decoration-color: var(--accent-color);">the unicorn app</a>
+      </h2>
+      <p style="font-family: var(--secondary-font); font-size: 14px; color: #666;">
+        [github link coming soon]
+      </p>
+      <p style="margin-top: 10px;">
+        A brief description of the unicorn app project.
+      </p>
+    </div>
 
-  <ul>
-    <li>Graph Neural Network molecular prediction project</li>
-    <li>Computer vision lab work (SIFT, RANSAC)</li>
-    <li>Wildfire image classification CNN</li>
-  </ul>
+    <!-- IOT Project -->
+    <div class="project-card">
+      <h2 style="margin-bottom: 10px;">
+        <a href="#" style="text-decoration: underline; text-decoration-color: var(--accent-color);">iot project</a>
+      </h2>
+      <p style="font-family: var(--secondary-font); font-size: 14px; color: #666;">
+        [github link coming soon]
+      </p>
+      <p style="margin-top: 10px;">
+        A brief description of the IOT project.
+      </p>
+    </div>
+
+    <!-- Master Thesis -->
+    <div class="project-card">
+      <h2 style="margin-bottom: 10px;">
+        <a href="#" style="text-decoration: underline; text-decoration-color: var(--accent-color);">master thesis</a>
+      </h2>
+      <p style="font-family: var(--secondary-font); font-size: 14px; color: #666;">
+        [paper link coming soon]
+      </p>
+      <p style="margin-top: 10px;">
+        A brief description of my master thesis research.
+      </p>
+    </div>
+
+    <!-- Car Risk Assessment Model -->
+    <div class="project-card">
+      <h2 style="margin-bottom: 10px;">
+        <a href="#" style="text-decoration: underline; text-decoration-color: var(--accent-color);">car risk assessment</a>
+      </h2>
+      <p style="font-family: var(--secondary-font); font-size: 14px; color: #666;">
+        [link coming soon]
+      </p>
+      <p style="margin-top: 10px;">
+        A brief description of the car risk assessment model.
+      </p>
+    </div>
+
+  </div>
 
 </BaseLayout>

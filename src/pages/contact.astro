@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Contact | Yiming Li">
+
+  <h1>contact</h1>
+
+  <div style="margin-top: 40px; display: flex; flex-direction: column; gap: 20px;">
+    
+    <div style="display: flex; align-items: center; gap: 15px;">
+      <span style="font-family: var(--secondary-font); width: 80px; color: #666;">email</span>
+      <a href="mailto:your.email@example.com" style="text-decoration: underline; text-decoration-color: var(--accent-color);">your.email@example.com</a>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 15px;">
+      <span style="font-family: var(--secondary-font); width: 80px; color: #666;">github</span>
+      <a href="https://github.com/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; text-decoration-color: var(--accent-color);">github.com/yourusername</a>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 15px;">
+      <span style="font-family: var(--secondary-font); width: 80px; color: #666;">linkedin</span>
+      <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; text-decoration-color: var(--accent-color);">linkedin.com/in/yourprofile</a>
+    </div>
+
+  </div>
+
+  <div style="margin-top: 60px;">
+    <!-- Small interactive line art element placeholder -->
+    <div class="placeholder-art" style="width: 200px; height: 150px; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
+      <p>Interactive Mailbox<br/>Line Art</p>
+    </div>
+  </div>
+
+</BaseLayout>

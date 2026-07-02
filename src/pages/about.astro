@@ -1,0 +1,34 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="About | Yiming Li">
+
+  <div style="display: flex; justify-content: flex-end; margin-bottom: 40px;">
+    <!-- Top-right notebook/mug line art placeholder -->
+    <div class="placeholder-art" style="width: 250px; height: 200px; transform: rotate(5deg);">
+      <p>Notebook & Mug<br/>Line Art</p>
+    </div>
+  </div>
+
+  <div style="max-width: 600px; margin-left: 20px;">
+    <p>just a regular person</p>
+
+    <p>likes building stuff, makes little apps here and there</p>
+
+    <p>loves music and movies — can only tell you if it's good or not, writing's too rough for actual reviews</p>
+
+    <p>loves to travel, just haven't been many places yet</p>
+
+    <p>studying english, still don't think i'm any good at it</p>
+
+    <p>some days i feel unstoppable, some days everything's falling apart</p>
+
+    <div style="margin-top: 40px;">
+      <a href="/cv.pdf" style="display: inline-block; padding: 10px 20px; border: 2px solid var(--text-color); border-radius: 25px; transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.backgroundColor='var(--text-color)'; this.style.color='var(--bg-color)';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='var(--text-color)';">
+        download cv
+      </a>
+    </div>
+  </div>
+
+</BaseLayout>
