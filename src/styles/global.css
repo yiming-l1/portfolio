@@ -40,7 +40,12 @@ a:hover {
   color: var(--accent-color);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--main-font);
   font-weight: normal;
   margin-top: 0;
@@ -78,7 +83,8 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-bottom: auto; /* Pushes bottom elements down */
+  margin-bottom: auto;
+  /* Pushes bottom elements down */
 }
 
 .nav-links a {
@@ -91,13 +97,18 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 }
 
-.nav-links a.active::after {
-  content: '~~~';
+.nav-links a.active::before {
+  content: '';
   position: absolute;
-  bottom: -15px;
-  left: 0;
-  color: #ffb703; /* A little yellow squiggle from the screenshot example */
-  font-size: 16px;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  background-image: url('/arrow.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   pointer-events: none;
 }
 
@@ -135,7 +146,7 @@ footer {
   .layout-container {
     flex-direction: column;
   }
-  
+
   .sidebar {
     width: 100%;
     height: auto;
@@ -150,7 +161,7 @@ footer {
     justify-content: center;
     gap: 20px;
   }
-  
+
   .main-content {
     padding: 20px;
   }
