@@ -2,56 +2,77 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 // Goofy name suggestion for the blog corner
-const blogTitle = "ramblings & scribbles";
+const blogTitle = "Ramblings & Scribbles";
 ---
 
 <BaseLayout title="Blog | Yiming Li">
-
   <div style="display: flex; justify-content: flex-end; margin-bottom: 40px;">
     <!-- Top-right blog line art placeholder -->
-    <div class="placeholder-art" style="width: 250px; height: 180px; transform: rotate(-3deg);">
-      <p>Blog<br/>Line Art</p>
+    <div
+      class="placeholder-art"
+      style="width: 250px; height: 180px; transform: rotate(-3deg);"
+    >
+      <p>Blog<br />Line Art</p>
     </div>
   </div>
 
   <div style="margin-left: 20px;">
     <div style="margin-bottom: 40px;">
       <h1>{blogTitle}</h1>
-      <p>some thoughts that didn't fit anywhere else.</p>
+      <p>Some thoughts that didn't fit anywhere else.</p>
     </div>
 
     <div style="display: flex; flex-direction: column; gap: 40px;">
-    
-    <!-- Blog Post Placeholder 1 -->
-    <article style="border-bottom: 1px dashed #ccc; padding-bottom: 20px;">
-      <h2>
-        <a href="#" style="text-decoration: underline; text-decoration-color: var(--accent-color);">hello world</a>
-      </h2>
-      <p style="font-family: var(--secondary-font); font-size: 14px; color: #666; margin-bottom: 15px;">July 2, 2026</p>
-      
-      <!-- Image Placeholder -->
-      <div style="width: 100%; max-width: 600px; height: 200px; background-color: #f5f5f5; border: 1px solid #ddd; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; color: #888;">
-        [image placeholder]
-      </div>
-      
-      <p>
-        Just setting up this little corner of the internet. Here is where I'll put my longer thoughts, maybe some pictures, or whatever comes to mind.
-      </p>
-    </article>
+      <!-- Blog Post Placeholder 1 -->
+      <article style="border-bottom: 1px dashed #ccc; padding-bottom: 20px;">
+        <h2>
+          <a
+            href="#"
+            style="text-decoration: underline; text-decoration-color: var(--accent-color);"
+            >hello world</a
+          >
+        </h2>
+        <p
+          style="font-family: var(--secondary-font); font-size: 14px; color: #666; margin-bottom: 15px;"
+        >
+          July 2, 2026
+        </p>
 
-    <!-- Blog Post Placeholder 2 -->
-    <article>
-      <h2>
-        <a href="#" style="text-decoration: underline; text-decoration-color: var(--accent-color);">on building things</a>
-      </h2>
-      <p style="font-family: var(--secondary-font); font-size: 14px; color: #666; margin-bottom: 15px;">June 15, 2026</p>
-      
-      <p>
-        Building small apps is like gardening. You plant a seed, water it, and sometimes it just dies. But sometimes, it turns into something cool that people actually want to use.
-      </p>
-    </article>
+        <!-- Image Placeholder -->
+        <div
+          style="width: 100%; max-width: 600px; height: 200px; background-color: #f5f5f5; border: 1px solid #ddd; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; color: #888;"
+        >
+          [image placeholder]
+        </div>
 
+        <p>
+          Just setting up this little corner of the internet. Here is where I'll
+          put my longer thoughts, maybe some pictures, or whatever comes to
+          mind.
+        </p>
+      </article>
+
+      <!-- Blog Post Placeholder 2 -->
+      <article>
+        <h2>
+          <a
+            href="#"
+            style="text-decoration: underline; text-decoration-color: var(--accent-color);"
+            >on building things</a
+          >
+        </h2>
+        <p
+          style="font-family: var(--secondary-font); font-size: 14px; color: #666; margin-bottom: 15px;"
+        >
+          June 15, 2026
+        </p>
+
+        <p>
+          Building small apps is like gardening. You plant a seed, water it, and
+          sometimes it just dies. But sometimes, it turns into something cool
+          that people actually want to use.
+        </p>
+      </article>
     </div>
   </div>
-
 </BaseLayout>
