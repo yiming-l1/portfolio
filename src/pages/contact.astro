@@ -1,5 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import emailIcon from "../assets/images/email.svg";
+import githubIcon from "../assets/images/github.svg";
+import linkedinIcon from "../assets/images/linkedin.svg";
 ---
 
 <BaseLayout title="Contact | Yiming Li">
@@ -18,17 +22,21 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   <div style="margin-left: 20px;">
     <h1>Say hi!</h1>
     <div style="margin-bottom: 40px;">
-      <p>Email is always the best way to reach me.</p>
+      <p>
+        Email's always the best way to reach me, but you can find me in other
+        places on the internet too :)
+      </p>
     </div>
 
     <div
       style="margin-top: 40px; display: flex; flex-direction: column; gap: 20px;"
     >
       <div style="display: flex; align-items: center; gap: 15px;">
-        <span
-          style="font-family: var(--secondary-font); width: 80px; color: #666;"
-          >email</span
-        >
+        <Image
+          src={emailIcon}
+          alt="email"
+          style="width: 32px; height: 32px; opacity: 0.8;"
+        />
         <a
           href="mailto:yimingli0120@gmail.com"
           style="text-decoration: underline; text-decoration-color: var(--accent-color);"
@@ -37,30 +45,32 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </div>
 
       <div style="display: flex; align-items: center; gap: 15px;">
-        <span
-          style="font-family: var(--secondary-font); width: 80px; color: #666;"
-          >github</span
-        >
+        <Image
+          src={githubIcon}
+          alt="github"
+          style="width: 32px; height: 32px; opacity: 0.8;"
+        />
         <a
-          href="https://github.com/"
+          href="https://github.com/yiming-l1/"
           target="_blank"
           rel="noopener noreferrer"
           style="text-decoration: underline; text-decoration-color: var(--accent-color);"
-          >github.com/yourusername</a
+          >github.com/yiming-l1</a
         >
       </div>
 
       <div style="display: flex; align-items: center; gap: 15px;">
-        <span
-          style="font-family: var(--secondary-font); width: 80px; color: #666;"
-          >linkedin</span
-        >
+        <Image
+          src={linkedinIcon}
+          alt="linkedin"
+          style="width: 32px; height: 32px; opacity: 0.8;"
+        />
         <a
-          href="https://linkedin.com/"
+          href="https://www.linkedin.com/in/yimingli0120/"
           target="_blank"
           rel="noopener noreferrer"
           style="text-decoration: underline; text-decoration-color: var(--accent-color);"
-          >linkedin.com/in/yourprofile</a
+          >linkedin.com/in/yimingli0120</a
         >
       </div>
     </div>
