@@ -7,6 +7,7 @@ import logoHover from "../assets/images/logo2.svg";
 
 const { title } = Astro.props;
 const currentPath = Astro.url.pathname;
+const normalizedPath = currentPath.endsWith('/') && currentPath !== '/' ? currentPath.slice(0, -1) : currentPath;
 ---
 
 <html lang="en">
@@ -33,17 +34,17 @@ const currentPath = Astro.url.pathname;
         </a>
 
         <nav class="nav-links">
-          <a href="/about" class={currentPath === "/about" ? "active" : ""}
+          <a href="/about" class={normalizedPath === "/about" ? "active" : ""}
             >about</a
           >
           <a
             href="/projects"
-            class={currentPath === "/projects" ? "active" : ""}>works</a
+            class={normalizedPath === "/projects" ? "active" : ""}>works</a
           >
-          <a href="/blog" class={currentPath === "/blog" ? "active" : ""}
+          <a href="/blog" class={normalizedPath === "/blog" ? "active" : ""}
             >blog</a
           >
-          <a href="/contact" class={currentPath === "/contact" ? "active" : ""}
+          <a href="/contact" class={normalizedPath === "/contact" ? "active" : ""}
             >contact</a
           >
         </nav>
