@@ -1,6 +1,10 @@
 ---
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
+import { Image } from "astro:assets";
+import logo from "../assets/images/logo1.svg";
+import logoHover from "../assets/images/logo2.svg";
+
 const { title } = Astro.props;
 const currentPath = Astro.url.pathname;
 ---
@@ -10,14 +14,23 @@ const currentPath = Astro.url.pathname;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    <link rel="preload" href="/fonts/danielbk.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+    <link
+      rel="preload"
+      href="/fonts/danielbk.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
     <ClientRouter />
   </head>
 
   <body>
     <div class="layout-container">
       <aside class="sidebar">
-        <a href="/" class="logo-link">Yiming Li</a>
+        <a href="/" class="logo-link">
+          <Image src={logo} alt="Yiming." class="logo-default" />
+          <Image src={logoHover} alt="Yiming." class="logo-hover" />
+        </a>
 
         <nav class="nav-links">
           <a href="/about" class={currentPath === "/about" ? "active" : ""}

@@ -77,6 +77,34 @@ h6 {
   font-weight: bold;
   margin-bottom: 40px;
   display: block;
+  position: relative;
+  width: 85%;
+}
+
+.logo-link img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.logo-default {
+  transition: opacity 0.3s ease;
+}
+
+.logo-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.logo-link:hover .logo-default {
+  opacity: 0;
+}
+
+.logo-link:hover .logo-hover {
+  opacity: 1;
 }
 
 .nav-links {
@@ -153,6 +181,11 @@ footer {
     position: relative;
     padding: 20px;
     align-items: center;
+  }
+
+  .logo-link {
+    width: 150px;
+    margin: 0 auto 20px auto;
   }
 
   .nav-links {
