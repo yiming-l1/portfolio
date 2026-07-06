@@ -4,18 +4,76 @@ import { Image } from "astro:assets";
 import emailIcon from "../assets/images/email.svg";
 import githubIcon from "../assets/images/github.svg";
 import linkedinIcon from "../assets/images/linkedin.svg";
+import cupAndPlate from "../assets/images/cupandplate.png";
+import steam from "../assets/images/steam.png";
+import cookieBottom from "../assets/images/cookiebottom.png";
+import cookieTop from "../assets/images/cookietop.png";
 ---
 
 <BaseLayout title="Contact | Yiming Li">
-  <div style="display: flex; justify-content: flex-end; margin-bottom: 40px;">
-    <!-- Small interactive line art element placeholder -->
+  <style>
+    @keyframes riseAndFade {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      80% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-20px) scale(1.15);
+        opacity: 0;
+      }
+    }
+    #steam {
+      animation: riseAndFade 2.5s infinite ease-out;
+    }
+    .draggable {
+      user-select: none;
+      -webkit-user-drag: none;
+      transition:
+        scale 0.2s ease,
+        rotate 0.2s ease;
+    }
+    .draggable:hover {
+      scale: 1.05;
+      rotate: 2deg;
+    }
+  </style>
+
+  <div style="display: flex; justify-content: flex-end; margin-bottom: 0px;">
     <div
-      class="placeholder-art"
-      style="width: 200px; height: 150px; cursor: pointer; transition: transform 0.3s ease;"
-      onmouseover="this.style.transform='scale(1.05)';"
-      onmouseout="this.style.transform='scale(1)';"
+      id="art-container"
+      style="position: relative; width: 250px; height: 250px;"
     >
-      <p>Interactive Mailbox<br />Line Art</p>
+      <img
+        src={cupAndPlate.src}
+        alt="Cup and Plate"
+        style="position: absolute; bottom: 0; left: 0; width: 100%; pointer-events: none;"
+      />
+      <img
+        id="steam"
+        src={steam.src}
+        alt="Steam"
+        style="position: absolute; bottom: 230px; left: 50px; width: 30px; pointer-events: none;"
+      />
+      <img
+        id="cookie-bottom"
+        class="draggable"
+        src={cookieBottom.src}
+        alt="Cookie Bottom"
+        style="position: absolute; bottom: 25px; right: 70px; width: 75px; cursor: grab;"
+      />
+      <img
+        id="cookie-top"
+        class="draggable"
+        src={cookieTop.src}
+        alt="Cookie Top"
+        style="position: absolute; bottom: 40px; right: 20px; width: 75px; cursor: grab;"
+      />
     </div>
   </div>
 
@@ -75,4 +133,45 @@ import linkedinIcon from "../assets/images/linkedin.svg";
       </div>
     </div>
   </div>
+
+  <script>
+    const draggables = document.querySelectorAll(
+      ".draggable",
+    ) as NodeListOf<HTMLElement>;
+    draggables.forEach((el) => {
+      let isDragging = false;
+      let currentX = 0;
+      let currentY = 0;
+      let startX = 0;
+      let startY = 0;
+
+      el.addEventListener("mousedown", (e: MouseEvent) => {
+        isDragging = true;
+        el.style.cursor = "grabbing";
+        el.style.zIndex = "10";
+
+        startX = e.clientX - currentX;
+        startY = e.clientY - currentY;
+
+        e.preventDefault();
+      });
+
+      document.addEventListener("mousemove", (e: MouseEvent) => {
+        if (!isDragging) return;
+
+        currentX = e.clientX - startX;
+        currentY = e.clientY - startY;
+
+        el.style.transform = `translate(${currentX}px, ${currentY}px)`;
+      });
+
+      document.addEventListener("mouseup", () => {
+        if (isDragging) {
+          isDragging = false;
+          el.style.cursor = "grab";
+          el.style.zIndex = "1";
+        }
+      });
+    });
+  </script>
 </BaseLayout>

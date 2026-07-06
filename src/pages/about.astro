@@ -1,13 +1,35 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import bagback from "../assets/images/bagback.png";
+import bagtop from "../assets/images/bagtop.png";
+import clover from "../assets/images/clover.png";
 ---
 
 <BaseLayout title="About | Yiming Li">
-
   <div style="display: flex; justify-content: flex-end; margin-bottom: 40px;">
-    <!-- Top-right notebook/mug line art placeholder -->
-    <div class="placeholder-art" style="width: 250px; height: 200px; transform: rotate(5deg);">
-      <p>Notebook & Mug<br/>Line Art</p>
+    <!-- Top-right bag line art -->
+    <div
+      id="art-container"
+      style="position: relative; width: 250px; height: 250px;"
+    >
+      <img
+        src={bagback.src}
+        alt="Bag Back"
+        style="position: absolute; bottom: 0; right: 132px; width: 80%; pointer-events: none;"
+      />
+      <img
+        id="clover"
+        src={clover.src}
+        alt="Clover"
+        style="position: absolute; top: 80px; left: 30px; width: 60px; cursor: pointer; transition: transform 0.2s ease; z-index: 5;"
+        onmouseover="this.style.transform='scale(1.1)'"
+        onmouseout="this.style.transform='scale(1)'"
+      />
+      <img
+        src={bagtop.src}
+        alt="Bag Top"
+        style="position: absolute; top: 70px; right: 0; width: 105%; pointer-events: none; z-index: 10;"
+      />
     </div>
   </div>
 
@@ -16,7 +38,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
     <p>likes building stuff, makes little apps here and there</p>
 
-    <p>loves music and movies — can only tell you if it's good or not, writing's too rough for actual reviews</p>
+    <p>
+      loves music and movies — can only tell you if it's good or not, writing's
+      too rough for actual reviews
+    </p>
 
     <p>loves to travel, just haven't been many places yet</p>
 
@@ -25,10 +50,67 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <p>some days i feel unstoppable, some days everything's falling apart</p>
 
     <div style="margin-top: 40px;">
-      <a href="/cv.pdf" style="display: inline-block; padding: 10px 20px; border: 2px solid var(--text-color); border-radius: 25px; transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.backgroundColor='var(--text-color)'; this.style.color='var(--bg-color)';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='var(--text-color)';">
+      <a
+        href="/cv.pdf"
+        style="display: inline-block; padding: 10px 20px; border: 2px solid var(--text-color); border-radius: 25px; transition: all 0.3s ease; text-decoration: none;"
+        onmouseover="this.style.backgroundColor='var(--text-color)'; this.style.color='var(--bg-color)';"
+        onmouseout="this.style.backgroundColor='transparent'; this.style.color='var(--text-color)';"
+      >
         download cv
       </a>
     </div>
   </div>
 
+  <!-- Clover Popup -->
+  <div
+    id="popup-overlay"
+    style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); z-index: 99; backdrop-filter: blur(2px);"
+  >
+  </div>
+
+  <div
+    id="clover-popup"
+    style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: var(--bg-color, #fff); border: 2px solid var(--text-color, #000); border-radius: 16px; padding: 40px; z-index: 100; flex-direction: column; align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.15); min-width: 280px;"
+  >
+    <button
+      id="close-popup"
+      style="position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-color, #000); transition: transform 0.2s ease;"
+      onmouseover="this.style.transform='scale(1.2)'"
+      onmouseout="this.style.transform='scale(1)'"
+    >
+      &times;
+    </button>
+    <img
+      src={clover.src}
+      alt="Clover"
+      style="width: 100px; margin-bottom: 25px;"
+    />
+    <h3
+      style="margin: 0; font-family: var(--primary-font, inherit); text-align: center; font-size: 24px;"
+    >
+      have a lucky day!
+    </h3>
+  </div>
+
+  <script>
+    const cloverImg = document.getElementById("clover");
+    const popup = document.getElementById("clover-popup");
+    const overlay = document.getElementById("popup-overlay");
+    const closeBtn = document.getElementById("close-popup");
+
+    if (cloverImg && popup && overlay && closeBtn) {
+      cloverImg.addEventListener("click", () => {
+        popup.style.display = "flex";
+        overlay.style.display = "block";
+      });
+
+      const closePopup = () => {
+        popup.style.display = "none";
+        overlay.style.display = "none";
+      };
+
+      closeBtn.addEventListener("click", closePopup);
+      overlay.addEventListener("click", closePopup);
+    }
+  </script>
 </BaseLayout>

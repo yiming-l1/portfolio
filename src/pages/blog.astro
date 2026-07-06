@@ -3,16 +3,42 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 // Goofy name suggestion for the blog corner
 const blogTitle = "Ramblings & Scribbles";
+import notebook from "../assets/images/notebook.png";
+import pen from "../assets/images/pen.png";
 ---
 
 <BaseLayout title="Blog | Yiming Li">
+  <style>
+    .draggable {
+      user-select: none;
+      -webkit-user-drag: none;
+      transition:
+        scale 0.2s ease,
+        rotate 0.2s ease;
+    }
+    .draggable:hover {
+      scale: 1.05;
+      rotate: 2deg;
+    }
+  </style>
   <div style="display: flex; justify-content: flex-end; margin-bottom: 40px;">
-    <!-- Top-right blog line art placeholder -->
+    <!-- Top-right blog line art -->
     <div
-      class="placeholder-art"
-      style="width: 250px; height: 180px; transform: rotate(-3deg);"
+      id="art-container"
+      style="position: relative; width: 250px; height: 200px;"
     >
-      <p>Blog<br />Line Art</p>
+      <img
+        src={notebook.src}
+        alt="Notebook"
+        style="position: absolute; bottom: 0; right: 100px; width: 90%; pointer-events: none;"
+      />
+      <img
+        id="pen"
+        class="draggable"
+        src={pen.src}
+        alt="Pen"
+        style="position: absolute; top: 50px; right: 0px; width: 130px; cursor: grab;"
+      />
     </div>
   </div>
 
@@ -75,4 +101,45 @@ const blogTitle = "Ramblings & Scribbles";
       </article>
     </div>
   </div>
+
+  <script>
+    const draggables = document.querySelectorAll(
+      ".draggable",
+    ) as NodeListOf<HTMLElement>;
+    draggables.forEach((el) => {
+      let isDragging = false;
+      let currentX = 0;
+      let currentY = 0;
+      let startX = 0;
+      let startY = 0;
+
+      el.addEventListener("mousedown", (e: MouseEvent) => {
+        isDragging = true;
+        el.style.cursor = "grabbing";
+        el.style.zIndex = "10";
+
+        startX = e.clientX - currentX;
+        startY = e.clientY - currentY;
+
+        e.preventDefault();
+      });
+
+      document.addEventListener("mousemove", (e: MouseEvent) => {
+        if (!isDragging) return;
+
+        currentX = e.clientX - startX;
+        currentY = e.clientY - startY;
+
+        el.style.transform = `translate(${currentX}px, ${currentY}px)`;
+      });
+
+      document.addEventListener("mouseup", () => {
+        if (isDragging) {
+          isDragging = false;
+          el.style.cursor = "grab";
+          el.style.zIndex = "1";
+        }
+      });
+    });
+  </script>
 </BaseLayout>
